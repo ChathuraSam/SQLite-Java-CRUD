@@ -24,7 +24,7 @@ public class Main {
 
         // Create user
         UserDao userDao = new UserDao();
-        userDao.createUser(new User(1, "Chathura", "chathura@gmail.com", "Sri Lanka"));
+        userDao.createUser(new User(2, "Madawa", "madawa@gmail.com", "Sri Lanka"));
     }
 
     private static void createTableUser(Connection conn) {

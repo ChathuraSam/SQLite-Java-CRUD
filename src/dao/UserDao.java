@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * @Date 2022-07-17
  */
 public class UserDao {
-    private static final String CREATE_USER = "insert into user(id, name, email,country) values(?, ?,?,?)";
+    private static final String CREATE_USER = "insert into user(id, name, email,country) values(?,?,?,?)";
 
     //insert user
     public void createUser(User user) {
@@ -22,8 +22,8 @@ public class UserDao {
             ps = con.prepareStatement(CREATE_USER);
             ps.setInt(1, user.getId());
             ps.setString(2, user.getName());
-            ps.setString(3, user.getCountry());
-            ps.setString(4, user.getEmail());
+            ps.setString(3, user.getEmail());
+            ps.setString(4, user.getCountry());
             ps.executeUpdate();
 
         }catch(SQLException e) {
