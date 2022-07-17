@@ -1,6 +1,8 @@
 package app;
 
 import dao.DbConnect;
+import dao.UserDao;
+import model.User;
 
 import java.sql.*;
 
@@ -18,7 +20,11 @@ public class Main {
             System.out.println("Connection failed to SQLite database!");
 
         // Create User table
-        createTableUser(conn);
+        // createTableUser(conn);
+
+        // Create user
+        UserDao userDao = new UserDao();
+        userDao.createUser(new User(1, "Chathura", "chathura@gmail.com", "Sri Lanka"));
     }
 
     private static void createTableUser(Connection conn) {
