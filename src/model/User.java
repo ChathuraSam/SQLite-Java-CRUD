@@ -2,7 +2,7 @@ package model;
 
 /**
  * @author chathura
- * @Date 2022-07-17
+ * @Date 2022-07-21
  */
 public class User {
     private int id;
@@ -13,6 +13,13 @@ public class User {
     public User(int id, String name, String email, String country) {
         super();
         this.id = id;
+        this.name = name;
+        this.email = email;
+        this.country = country;
+    }
+
+    public User(String name, String email, String country) {
+        super();
         this.name = name;
         this.email = email;
         this.country = country;

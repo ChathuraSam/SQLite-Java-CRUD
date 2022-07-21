@@ -5,6 +5,7 @@ import dao.UserDao;
 import model.User;
 
 import java.sql.*;
+import java.util.List;
 
 /**
  * @author chathura
@@ -22,9 +23,33 @@ public class Main {
         // Create User table
         // createTableUser(conn);
 
-        // Create user
         UserDao userDao = new UserDao();
-        userDao.createUser(new User(2, "Madawa", "madawa@gmail.com", "Sri Lanka"));
+
+        // Create user
+         insertUser(new User(1, "Madawa", "madawa@gmail.com", "IN"), userDao);
+
+        // List all users
+        // listAllusers(userDao.getAllUsers());
+
+        // Update user
+        //User newUser =  new User("AAA", "BBB", "CCC");
+        //updateUser(1, newUser, userDao);
+    }
+
+    public static void insertUser(User user, UserDao userDao) {
+        userDao.createUser(new User(2, user.getName(), user.getEmail(), user.getCountry()));
+    }
+
+    public static void listAllusers(List<User> userList) {
+        for(User u: userList) {
+            System.out.println(u);
+        }
+    }
+
+    public static void updateUser(int id, User newUser, UserDao userDao) {
+        User user = userDao.updateUser(id, newUser);
+        System.out.println("Updated");
+        System.out.println(user);
     }
 
     private static void createTableUser(Connection conn) {
